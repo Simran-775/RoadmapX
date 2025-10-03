@@ -5,50 +5,43 @@ import axios from 'axios';
 function TakeInput() {
     const [target_role, settarget_role] = useState("");
     const [leadership, setleadership] = useState(null);
-    const [skills, setskills] = useState("");
-    const [availproj, setavailproj] = useState("");
+    const [known_skills, setskills] = useState("");
+    const [available_projects, setavailproj] = useState("");
     const [resume, setresume] = useState(null);
+    const [generate_roadmap, setGeneratedRoadmap] = useState(null);
     const [remarks, setremarks] = useState("");
-    const [accom, setaccom] = useState("");
+    const [accomplishments, setaccom] = useState("");
     const [resumeFileName, setResumeFileName] = useState("No file chosen"); // State for file name display
 
     async function handleSubmit(e){
-        e.preventDefault();
-        try {
-            const formdata = new FormData();
-            if(resume !== null) {
-                formdata.append("resume", resume);
-            }
-            formdata.append("skills", skills);
-            formdata.append("availproj", availproj);
-            formdata.append("leadership", leadership);
-            formdata.append("remarks", remarks);
-            formdata.append("accom", accom);
-            formdata.append("target_role", target_role);
-            
-            const resp = await axios.post("http://localhost:5000", formdata);
-            
-            if (resp.data.success === 1) {
-                toast.success("Details added successfully!");
-                // Optionally clear form fields here
-                settarget_role("");
-                setleadership(null);
-                setskills("");
-                setavailproj("");
-                setresume(null);
-                setResumeFileName("No file chosen");
-                setremarks("");
-                setaccom("");
-            } else if (resp.data.success === 0) {
-                toast.info("Details not updated.");
-            } else {
-                toast.error("Some error occurred, please try again.");
-            } 
-        } catch (error) {
-            console.error("Submission error:", error);
-            toast.error("Network error or server issue.");
+    e.preventDefault();
+    try {
+        const formdata = new FormData();
+        if(resume !== null) {
+            formdata.append("resume", resume);
         }
+        formdata.append("known_skills", known_skills);
+        formdata.append("available_projects", available_projects);   // ✅ changed
+        formdata.append("leadership", leadership);
+        formdata.append("remarks", remarks);
+        formdata.append("accomplishments", accomplishments); // ✅ changed
+        formdata.append("target_role", target_role);
+        
+        const resp = await axios.post("http://localhost:8000/submit", formdata);
+        
+        if (resp.data.success === 1) {
+    toast.success("Details added successfully!");
+    console.log("Roadmap:", resp.data.roadmap); // <- show in UI
+    setGeneratedRoadmap(resp.data.roadmap); // you can store it in state
+} else {
+    toast.error("Error generating roadmap");
+}
+    } catch (error) {
+        console.error("Submission error:", error);
+        toast.error("Network error or server issue.");
     }
+}
+
 
     const handleResumeChange = (e) => {
         const file = e.target.files[0];
@@ -76,11 +69,11 @@ function TakeInput() {
                 </div>
                 
                 <div className="form-group">
-                    <label htmlFor="skills">Skills</label>
+                    <label htmlFor="known_skills">known_skills</label>
                     <textarea 
-                        id="skills" 
+                        id="known_skills" 
                         placeholder="Enter in comma separated format (e.g., React, Node.js, Python)" 
-                        value={skills} 
+                        value={known_skills} 
                         onChange={(e) => setskills(e.target.value)} 
                         className="form-control"
                         rows="3"
@@ -92,7 +85,7 @@ function TakeInput() {
                     <textarea 
                         id="availproj" 
                         placeholder="List your projects or portfolios here." 
-                        value={availproj} 
+                        value={available_projects} 
                         onChange={(e) => setavailproj(e.target.value)} 
                         className="form-control"
                         rows="4"
@@ -138,11 +131,11 @@ function TakeInput() {
                 </div>
                 
                 <div className="form-group">
-                    <label htmlFor="accom">Accomplishments (Awards, titles, or significant impacts)</label>
+                    <label htmlFor="accomplishments">Accomplishments (Awards, titles, or significant impacts)</label>
                     <textarea 
-                        id="accom" 
+                        id="accomplishments" 
                         placeholder="List your accomplishments here." 
-                        value={accom} 
+                        value={accomplishments} 
                         onChange={(e) => setaccom(e.target.value)} 
                         className="form-control"
                         rows="4"
