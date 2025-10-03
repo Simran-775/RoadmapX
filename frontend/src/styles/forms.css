@@ -1,0 +1,220 @@
+/* src/styles/forms.css - NEW DESIGN (One Input Per Line) */
+
+/* --- Root Variables for Form & Accent Colors --- */
+:root {
+    --form-bg-color: #ffffff;
+    --form-border-radius: 12px;
+    --form-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer, deeper shadow */
+    --accent-color-light: #6a5acd; /* A vibrant purple-blue */
+    --accent-color-dark: #5242b5;
+    --text-color-primary: #333;
+    --text-color-secondary: #666;
+    --border-color-light: #e0e0e0;
+    --focus-border-color: #8b80e8; /* Lighter shade of accent for focus */
+    --button-gradient-start: #5a4bda; /* Gradient for primary button */
+    --button-gradient-end: #7b68ee;
+    --file-input-bg: #f5f5f5; /* Light grey for file input area */
+}
+
+/* --- Form Container --- */
+.form-container {
+    max-width: 700px; /* Adjusted max-width for single column layout */
+    margin: 60px auto;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.simple-form {
+    background-color: var(--form-bg-color);
+    border-radius: var(--form-border-radius);
+    box-shadow: var(--form-shadow);
+    padding: 30px 40px;
+    display: grid;
+    /* Key Change: Always one column, regardless of screen size */
+    grid-template-columns: 1fr;
+    gap: 25px; /* Spacing between form groups */
+}
+
+/* Ensure title and button always span full width */
+.simple-form h2 {
+    grid-column: 1 / -1; /* Always span full width */
+    text-align: center;
+    color: var(--text-color-primary);
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 600;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Make every form group span the full width */
+.form-group {
+    grid-column: 1 / -1; /* Ensure every form group takes the full width */
+    margin-bottom: 0; /* Gap handled by grid */
+}
+
+.form-action {
+    grid-column: 1 / -1; /* Center button across full width */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- Form Group Styling (No Change Needed Here) --- */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color-secondary);
+    font-size: 0.95em;
+    text-align:left;
+}
+
+/* --- Input & Textarea Styling (No Change Needed Here) --- */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    background-color: var(--form-bg-color);
+    color: var(--text-color-primary);
+}
+
+.form-control::placeholder {
+    color: #a0a0a0;
+}
+
+.form-control:focus {
+    border-color: var(--focus-border-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 128, 232, 0.2);
+    background-color: #fcfcff;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 90px;
+    padding-top: 15px;
+}
+
+/* --- File Input Specific Styling (No Change Needed Here) --- */
+.form-control-file-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    background-color: var(--file-input-bg);
+    padding: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control-file-wrapper:focus-within {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 0 3px rgba(139, 128, 232, 0.2);
+}
+
+.form-control-file-wrapper input[type="file"] {
+    display: none;
+}
+
+.custom-file-button {
+    background: #dddbea;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 10px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.custom-file-button:hover {
+    background: var(--accent-color-dark);
+}
+
+.file-name-display {
+    color: var(--text-color-secondary);
+    font-size: 0.9em;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* --- Radio Button Group (No Change Needed Here) --- */
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+.radio-group .radio-label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    color: var(--text-color-primary);
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color-light);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    border-color: var(--accent-color-light);
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color-light);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* --- Submit Button (No Change Needed Here) --- */
+.form-action {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-image: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(90, 75, 218, 0.2);
+}
+
+.btn-primary:hover {
+    background-image: linear-gradient(to right, var(--button-gradient-dark), var(--button-gradient-start));
+    box-shadow: 0 8px 20px rgba(90, 75, 218, 0.3);
+    transform: translateY(-2px);
+}

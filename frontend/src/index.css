@@ -11,3 +11,236 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* style.css */
+
+/* Basic Reset & Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;/* Light gray background */
+    color: #333;
+}
+
+.container { /* Optional: for constraining width if needed */
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff; /* Blue links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Header & Navigation --- */
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Constrain nav width */
+    margin: 0 auto;
+}
+
+.site-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between nav items */
+}
+
+.nav-links a {
+    color: white;
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn.login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn.login:hover {
+    background-color: #555;
+}
+
+.btn.signup, .btn.primary-btn {
+    background-color: #007bff; /* Primary blue button */
+    color: white;
+    font-weight: bold;
+}
+
+.btn.signup:hover, .btn.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* --- Sections --- */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #e9ecef; /* Lighter background for hero */
+    margin-bottom: 30px;
+}
+
+.content-section {
+    max-width: 800px; /* Max width for content */
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+/* Roadmap Specific */
+.roadmap-item {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Separator */
+}
+.roadmap-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Form Specific */
+.registration-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.registration-form .primary-btn {
+    margin-top: 15px;
+    width: auto; /* Don't force full width for submit */
+}
+
+
+
+header {
+    background-color: var(--accent-color-light); 
+    color: white; 
+    padding: 15px 20px;
+}
+
+/* Change 2: Site Logo Color */
+.site-logo {
+    color: white; 
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white; 
+    font-weight: bold;
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    transition: background-color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Light hover background */
+    text-decoration: none; /* No underline on hover */
+}
+
+/* Change 4: Button Styles for Navbar */
+.btn.login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Lighter white border */
+}
+
+.btn.login:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle hover for login */
+    border-color: white;
+}
+
+.btn.signup { /* Uses the same gradient as the form submit button */
+    background-image: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(90, 75, 218, 0.2); /* Subtle shadow for signup button */
+}
+
+.btn.signup:hover {
+    background-image: linear-gradient(to right, var(--button-gradient-dark), var(--button-gradient-start));
+    box-shadow: 0 6px 15px rgba(90, 75, 218, 0.3);
+    transform: translateY(-1px);
+}
+
+/* --- Footer Styling --- */
+footer {
+    text-align: center;
+    padding: 30px 20px; /* Slightly more padding for a substantial look */
+    background-color: var(--accent-color-light); /* Matching the header's background */
+    color: white; /* White text for contrast */
+    margin-top: 60px; /* Give some space above the footer */
+    font-size: 0.9em; /* Slightly smaller text for copyright info */
+}
+
+footer p {
+    margin-bottom: 0; /* Remove default paragraph margin if any */
+}
+
+/* If you have links in your footer, style them to be visible */
+footer a {
+    color: white; /* White links */
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

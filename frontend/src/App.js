@@ -1,14 +1,22 @@
 
+import { BrowserRouter } from 'react-router-dom';
+import './styles/forms.css';
 import './App.css';
+import Navbar from './Components/Navbar';
 import TakeInput from './Components/TakeInput';
-import { ChakraProvider } from "@chakra-ui/react";
+import Footer from './Components/Footer';
+import Home from './Components/Home';
+import SiteRoutes from './Components/SiteRoutes';
 function App() {
   return (
     <div className="App">
-     
- <TakeInput/>
-     
-     
+     <BrowserRouter>
+     <Navbar/>
+      
+      <SiteRoutes/>
+
+     <Footer/>
+     </BrowserRouter>
     </div>
   );
 }
