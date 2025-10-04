@@ -1,5 +1,11 @@
 # Career Development Roadmap Generator
 # RoadmapX
+<p align="center">
+  <img src="frontend/media/homepage.png" 
+       alt="RoadmapX Homepage Screenshot" 
+       width="800" 
+       style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</p>
 
 ## 🚀 Team Information
 
