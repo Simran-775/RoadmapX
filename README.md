@@ -1,11 +1,6 @@
 # Career Development Roadmap Generator
 # RoadmapX
-<p align="center">
-  <img src="frontend/media/homepage.png"
-       alt="RoadmapX Homepage Screenshot"
-       width="800"
-       style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-</p>
+
 
 ## 🚀 Team Information
 
@@ -115,9 +110,7 @@ These instructions assume you have Node.js (which includes npm/yarn) for the fro
 3.  Click "Submit Profile".
 4.  The generated career roadmap will appear directly below the form on the same page.
 
-## 🎬 Demo Video
 
-* [Link to your demo video on YouTube, Vimeo, or other platform]
 
 ## 🌐 External APIs Used
 
