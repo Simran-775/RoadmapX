@@ -3,11 +3,11 @@ function Navbar(){
     const navigate = useNavigate()
     function handlelogin()
     {
-        navigate("/register")
+       
     }
     function handlesignup()
     {
-        navigate("/signup")
+        
     }
     return(
         <>

@@ -1,0 +1,116 @@
+.roadmap-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 25px 35px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.roadmap-container h2 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.roadmap-container h3 {
+    color: #34495e;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+}
+
+.roadmap-container h4 {
+    color: #2980b9;
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #aed6f1;
+}
+
+.roadmap-container p {
+    margin-bottom: 10px;
+}
+
+.roadmap-container ul {
+    list-style: none; /* Remove default bullet */
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.roadmap-container li {
+    margin-bottom: 8px;
+    padding-left: 25px; /* Indent for custom bullet */
+    position: relative;
+}
+
+.roadmap-container li::before {
+    content: '•'; /* Custom bullet */
+    color: #3498db; /* Bullet color */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+/* Specific styling for the bold list item headings like "Skill Goals" */
+.roadmap-container li.roadmap-section-heading {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.roadmap-container li.roadmap-section-heading::before {
+    content: '▶'; /* A different bullet for section headings */
+    color: #2ecc71;
+}
+
+/* Styling for nested list items */
+.roadmap-container ul.nested-list {
+    margin-left: 20px; /* Further indent nested lists */
+    list-style: disc; /* Use default disc for nested items if preferred, or custom */
+}
+.roadmap-container ul.nested-list li::before {
+    content: ''; /* Remove custom bullet for default nested list items */
+}
+.roadmap-container ul.nested-list li {
+    padding-left: 0; /* Reset padding for default disc bullet */
+}
+
+
+.roadmap-container hr.roadmap-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(52, 152, 219, 0.75), rgba(0, 0, 0, 0));
+    margin: 40px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .roadmap-container {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    .roadmap-container h2 {
+        font-size: 1.8em;
+    }
+    .roadmap-container h3 {
+        font-size: 1.5em;
+    }
+    .roadmap-container h4 {
+        font-size: 1.2em;
+    }
+}

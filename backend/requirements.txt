@@ -1,0 +1,5 @@
+fastapi==0.111.0 # Or the specific version you are using
+uvicorn==0.30.1 # Or the specific version you are using, needed to run FastAPI
+PyPDF2==3.0.1 # Or the specific version you are using
+google-generativeai==0.7.0 # Or the specific version you are using
+python-dotenv==1.0.0 # Recommended for managing API keys and environment variables

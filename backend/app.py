@@ -53,7 +53,7 @@ def extract_text_from_pdf(file):
 async def generate_roadmap_internal(user_data):
     logging.info("Starting generate_roadmap_internal function.")
 
-    resume_text = user_data.get("resume_text", "") # Use .get() for safer access
+    resume_text = user_data.get("resume_text", "") 
     known_skills_list = [s.strip() for s in user_data["known_skills"].split(",") if s.strip()]
     available_projects_list = [p.strip() for p in user_data["available_projects"].split(",") if p.strip()]
     accomplishments_list = [a.strip() for a in user_data["accomplishments"].split(",") if a.strip()]
@@ -83,8 +83,6 @@ async def generate_roadmap_internal(user_data):
     logging.info(f"Prompt created for Gemini API. Target role: {target_role}")
 
     try:
-        # Add a timeout to the API call (e.g., 60 seconds)
-        # This will prevent indefinite hangs and give an error if it takes too long
         response = text_generation_model.generate_content(
             [prompt],
             request_options={"timeout": 60} # Set a 60-second timeout
@@ -147,77 +145,3 @@ async def submit_details(
         logging.error(f"General error during /submit: {e}", exc_info=True)
         return JSONResponse({"success": -1, "msg": "Internal server error", "detail": str(e)}, status_code=500)
     
-
-
-
-
-
-
-# --------------------------
-# Step 5: Extract text from PDF resume
-# --------------------------
-
-
-# --------------------------
-# Step 6: Generate employee roadmap
-# --------------------------
-# @app.post("/employee_roadmap")
-# async def generate_roadmap(
-#     name: str = Form(...),
-#     resume: UploadFile = File(...),
-#     target_role: str = Form(...),
-#     leadership: str = Form(...),
-#     available_projects: str = Form(...),
-#     known_skills: str = Form(...),
-#     accomplishments: str = Form(...),
-#     remarks: str = Form(...)
-# ):
-    
-
-#     # Convert comma-separated strings to lists
-#     available_projects_list = [proj.strip() for proj in available_projects.split(",")]
-#     known_skills_list = [skill.strip() for skill in known_skills.split(",")]
-#     accomplishments_list = [acc.strip() for acc in accomplishments.split(",")]
-
-#     # Determine missing skills for target role
-#     target_role_skills = role_skills_database.get(target_role, [])
-#     missing_skills = [skill for skill in target_role_skills if skill not in known_skills_list]
-
-#     # Prepare prompt for GPT-4
-#     prompt = f"""
-# Employee Name: {name}
-# Target Role: {target_role}
-# Leadership Ability: {leadership}
-# Current Skills: {known_skills_list}
-# Missing Skills: {missing_skills}
-# Available Projects: {available_projects_list}
-# Accomplishments: {accomplishments_list}
-# Remarks: {remarks}
-
-# Generate a personalized development roadmap for the employee,
-# including suggested trainings, project assignments, leadership development steps, 
-# and recommendations based on their accomplishments.
-# Format in bullet points with quarters (Q1, Q2, etc.).
-# """
-
-#     # Call GPT-4 API
-#     response = openai.ChatCompletion.create(
-#         model="gpt-4",
-#         messages=[{"role": "user", "content": prompt}],
-#         max_tokens=700
-#     )
-
-#     roadmap_text = response.choices[0].message.content
-
-#     # Return roadmap and input data
-#     return {
-#         "name": name,
-#         "target_role": target_role,
-#         "leadership": leadership,
-#         "available_projects": available_projects_list,
-#         "known_skills": known_skills_list,
-#         "accomplishments": accomplishments_list,
-#         "remarks": remarks,
-#         "roadmap": roadmap_text
-#     }
-
