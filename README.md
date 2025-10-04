@@ -8,11 +8,11 @@
 
 ## 👥 Team Members & Roles
 
-* **[Simranjeet Kaur]:** Frontend Developement
-* **[Jasleen Kaur]:** Backend Developement
-* **[Kritika]:** API key generationa and Usage
-* **[Jasreet Kaur]:**  Presentation 
-* **[Ankush Garg]:** Handled all the research work
+* **Simranjeet Kaur:** Frontend Developement
+* **Jasleen Kaur:** Backend Developement
+* **Kritika:** API key generationa and Usage
+* **Jasreet Kaur:**  Presentation 
+* **Ankush Garg:** Handled all the research work
 
 
 ## 🎯 Problem Statement Selected
