@@ -10,7 +10,7 @@ import logging # Import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # --- API key directly in code (as per your request, but insecure) ---
-genai.configure(api_key="AIzaSyDUC2lXBIw_oHe7_enuGoqc3ocyKGPg3M0")
+genai.configure(api_key="your api key")
 
 # --- Initialize the Generative Model once globally ---
 text_generation_model = genai.GenerativeModel("models/gemini-2.5-flash-preview-05-20")
